@@ -11,17 +11,17 @@ describe('HeroService', () => {
   ];
   
   let service: HeroService;
-  // let messageService: MessageService;
+  const mockMessageService = new MessageService();
 
   let http = {
     get: jest.fn(() => of(mockHeroes))
   };
 
   beforeEach(() => {
-    const messageService = new MessageService();
-    messageService = jest.fn();
+    // const messageService = new MessageService();
     // messageService = jest.fn();
-    service = new HeroService(http as any, messageService);
+    // messageService = jest.fn();
+    service = new HeroService(http as any, mockMessageService);
   })
 
 
